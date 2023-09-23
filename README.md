@@ -1,6 +1,6 @@
-# Homework 01
+# Homework 02
 
-Details are available at: https://d17btkcdsmqrmh.cloudfront.net/vue/docs/module-2/homework
+Details are available at: https://d17btkcdsmqrmh.cloudfront.net/vue/docs/module-3/homework
 
 ## Project Setup
 
