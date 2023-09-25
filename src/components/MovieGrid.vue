@@ -1,9 +1,6 @@
 <template>
     <div class="list-movies">        
-        <MovieItem 
-            v-for="movie in movies"
-            :movie="movie"
-        />
+        <movie-item v-for="movie in movies" :movie="movie" />
     </div>
 </template>
 
