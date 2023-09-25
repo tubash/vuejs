@@ -1,5 +1,7 @@
 # Homework 02
 
+<h2>Please run <code>npm run storybook</code> for the homework</h2>
+
 Details are available at: https://d17btkcdsmqrmh.cloudfront.net/vue/docs/module-3/homework
 
 ## Project Setup
