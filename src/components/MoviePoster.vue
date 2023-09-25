@@ -1,8 +1,13 @@
 <template>
-  <img class="movie-poster-parameters" :src="source" />
+  <img 
+    class="movie-poster-parameters" 
+    v-lazyload
+    :data-src="source" />
 </template>
 
 <script lang="ts">
+import LazyLoadDirective from "@/directives/LazyLoadDirective";
+
 export default {
   props: {
     source: {
@@ -10,6 +15,9 @@ export default {
       required: true,
     },
   },
+  directives: {
+    lazyload: LazyLoadDirective,
+  }
 };
 </script>
 
