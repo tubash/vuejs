@@ -1,20 +1,20 @@
 <template>
-    <div class="search-summary-title">{{ summary }}</div>
+  <div class="search-summary-title">{{ summary }}</div>
 </template>
-  
+
 <script lang="ts">
-  export default {
-    props: {
-        summary: {
-        type: String,
-        required: true,
-      },
+export default {
+  props: {
+    summary: {
+      type: String,
+      required: true,
     },
-  };
-  </script>
-  
+  },
+};
+</script>
+
 <style scoped>
-    .search-summary-title {
-        font-size: medium;
-    }
+.search-summary-title {
+  font-size: medium;
+}
 </style>

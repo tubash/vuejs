@@ -1,12 +1,11 @@
 import MovieGrid from "../components/MovieGrid.vue";
-import * as MovieItemStories from './MovieItem.stories';
+import * as MovieItemStories from "./MovieItem.stories";
 
 export default {
-    component: MovieGrid,
-    title: 'Movie Grid',
-    tags: ["autodocs"],
-  };
-
+  component: MovieGrid,
+  title: "Movie Grid",
+  tags: ["autodocs"],
+};
 
 export const Default = {
   args: {
@@ -21,4 +20,4 @@ export const Default = {
       { ...MovieItemStories.KillBill.args.movie },
     ],
   },
-}
+};
