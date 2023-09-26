@@ -1,4 +1,4 @@
-import SearchButton from "../components/SearchButton.vue";
+import SearchButton from "@/components/SearchButton.vue";
 
 export default {
   component: SearchButton,

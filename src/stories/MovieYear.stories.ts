@@ -1,4 +1,4 @@
-import MovieYear from "../components/MovieYear.vue";
+import MovieYear from "@/components/MovieYear.vue";
 
 export default {
   component: MovieYear,

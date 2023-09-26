@@ -1,4 +1,4 @@
-import MovieTitle from "../components/MovieTitle.vue";
+import MovieTitle from "@/components/MovieTitle.vue";
 
 export default {
   component: MovieTitle,

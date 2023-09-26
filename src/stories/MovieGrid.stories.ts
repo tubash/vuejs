@@ -1,5 +1,5 @@
-import MovieGrid from "../components/MovieGrid.vue";
-import * as MovieItemStories from "./MovieItem.stories";
+import MovieGrid from "@/components/MovieGrid.vue";
+import * as MovieItemStories from "@/stories/MovieItem.stories";
 
 export default {
   component: MovieGrid,

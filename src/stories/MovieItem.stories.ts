@@ -1,7 +1,7 @@
-import MovieItem from "../components/MovieItem.vue";
+import MovieItem from "@/components/MovieItem.vue";
 
-import posterPulpFiction from "./assets/pulpfiction.png";
-import posterKillBill from "./assets/killbill.png";
+import posterPulpFiction from "@/stories/assets/pulpfiction.png";
+import posterKillBill from "@/stories/assets/killbill.png";
 
 export default {
   component: MovieItem,

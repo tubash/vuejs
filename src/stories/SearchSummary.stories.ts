@@ -1,4 +1,4 @@
-import SearchSummary from "../components/SearchSummary.vue";
+import SearchSummary from "@/components/SearchSummary.vue";
 
 export default {
   component: SearchSummary,
