@@ -1,5 +1,5 @@
 import { ref, Ref } from 'vue';
-import Movie from "@/types/Movie";
+import { type Movie } from "@/types/Movie";
 
 export default function useSearch() { 
 

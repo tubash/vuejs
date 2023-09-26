@@ -1,7 +1,7 @@
 <template>
     <div class="search-component">
         <search-input :text="text" />
-        <search-button />
+        <search-button @do-search="() => { $emit('do-search') }" />
     </div>
 </template>
 <script lang="ts">
@@ -9,6 +9,7 @@
     import SearchButton from '@/components/SearchButton.vue';
 
     export default {
+        emits: ["do-search"],
         components: {
             SearchInput,
             SearchButton
@@ -18,7 +19,7 @@
                 type: String,
                 required: false,
             }
-        }
+        },     
     }
 </script>
 <style>

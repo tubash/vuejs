@@ -3,7 +3,7 @@
       <div class="content">
         <h1>FIND YOUR MOVIE</h1>
         <div>
-          <search-component :text="text" />
+          <search-component :text="text" @do-search="performSearch"/>
         </div>
         <div>
           <search-summary :amount="amount" />
@@ -24,8 +24,8 @@
   import MovieGrid from '@/components/MovieGrid.vue';
   import type Movie from '@/types/Movie';
 
-  import posterPulpFiction from "./stories/assets/pulpfiction.png";
-  import posterKillBill from "./stories/assets/killbill.png";
+  import posterPulpFiction from "@/stories/assets/pulpfiction.png";
+  import posterKillBill from "@/stories/assets/killbill.png";
 
   export default {
     components: {
@@ -74,7 +74,11 @@
         required: true,
         default: 0,
       }
-    }
+    },
+    setup() {
+      const performSearch = () => console.log("TEST");
+      return { performSearch };
+    },    
   }
 </script>
 
