@@ -1,4 +1,4 @@
-import MovieGenre from "../components/MovieGenre.vue";
+import MovieGenre from "@/components/MovieGenre.vue";
 
 export default {
   component: MovieGenre,

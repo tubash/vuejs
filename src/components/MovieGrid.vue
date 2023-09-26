@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts">
-import Movie from "@/types/Movie";
-import MovieItem from "./MovieItem.vue";
+import MovieItem from "@/components/MovieItem.vue";
+import { type Movie } from "@/types/Movie";
 
 export default {
   components: {

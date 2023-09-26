@@ -21,8 +21,9 @@ export default {
 <style scoped>
 .search-input {
   font-size: small;
-  width: 90%;
+  width: 60%;
   padding: 12px 20px;
   height: 25px;
+  margin-right: 10px;
 }
 </style>

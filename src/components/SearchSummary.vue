@@ -1,12 +1,12 @@
 <template>
-  <div class="search-summary-title">{{ summary }}</div>
+  <div class="search-summary-title">{{ amount }} movies found</div>
 </template>
 
 <script lang="ts">
 export default {
   props: {
-    summary: {
-      type: String,
+    amount: {
+      type: Number,
       required: true,
     },
   },
@@ -16,5 +16,7 @@ export default {
 <style scoped>
 .search-summary-title {
   font-size: medium;
+  font-weight: bold;
+  margin: 20px 0;
 }
 </style>

@@ -15,12 +15,12 @@
 
 <script lang="ts">
 import { type PropType } from "vue";
-import Movie from "@/types/Movie";
+import { type Movie } from "@/types/Movie";
 
-import MoviePoster from "./MoviePoster.vue";
-import MovieTitle from "./MovieTitle.vue";
-import MovieYear from "./MovieYear.vue";
-import MovieGenre from "./MovieGenre.vue";
+import MoviePoster from "@/components/MoviePoster.vue";
+import MovieTitle from "@/components/MovieTitle.vue";
+import MovieYear from "@/components/MovieYear.vue";
+import MovieGenre from "@/components/MovieGenre.vue";
 
 export default {
   components: {

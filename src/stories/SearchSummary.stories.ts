@@ -8,12 +8,12 @@ export default {
 
 export const Results10 = {
   args: {
-    summary: "10 movies found",
+    amount: 10,
   },
 };
 
 export const Results100 = {
   args: {
-    summary: "100 movies found",
+    amount: 100,
   },
 };

@@ -1,10 +1,82 @@
 <template>
-  <div class="wrapper">
-    <h1>
-      Please run <span class="invert">npm run storybook</span> for the homework
-    </h1>
+    <div class="center">
+      <div class="content">
+        <h1>FIND YOUR MOVIE</h1>
+        <div>
+          <search-component :text="text" />
+        </div>
+        <div>
+          <search-summary :amount="amount" />
+        </div>
+        <div>
+          <movie-grid :movies="movies" />
+        </div>
+      </div>
+    </div>
+  <div>
+
   </div>
 </template>
+
+<script lang="ts">
+  import SearchComponent from '@/components/SearchComponent.vue';
+  import SearchSummary from '@/components/SearchSummary.vue';
+  import MovieGrid from '@/components/MovieGrid.vue';
+  import type Movie from '@/types/Movie';
+
+  import posterPulpFiction from "./stories/assets/pulpfiction.png";
+  import posterKillBill from "./stories/assets/killbill.png";
+
+  export default {
+    components: {
+      MovieGrid,
+      SearchComponent,
+      SearchSummary
+    },
+    props: {
+      movies: {
+        type: Array<Movie>,
+        required: true,
+        default: () => [
+        { id: 1, image: posterKillBill, title: "Kill Bill", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 2, image: posterPulpFiction, title: "PulpFiction", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 1, image: posterKillBill, title: "Kill Bill", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 2, image: posterPulpFiction, title: "PulpFiction", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 1, image: posterKillBill, title: "Kill Bill", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 2, image: posterPulpFiction, title: "PulpFiction", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 1, image: posterKillBill, title: "Kill Bill", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 2, image: posterPulpFiction, title: "PulpFiction", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 1, image: posterKillBill, title: "Kill Bill", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 2, image: posterPulpFiction, title: "PulpFiction", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 1, image: posterKillBill, title: "Kill Bill", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 2, image: posterPulpFiction, title: "PulpFiction", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 1, image: posterKillBill, title: "Kill Bill", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 2, image: posterPulpFiction, title: "PulpFiction", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 1, image: posterKillBill, title: "Kill Bill", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 2, image: posterPulpFiction, title: "PulpFiction", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 1, image: posterKillBill, title: "Kill Bill", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 2, image: posterPulpFiction, title: "PulpFiction", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 1, image: posterKillBill, title: "Kill Bill", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 2, image: posterPulpFiction, title: "PulpFiction", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 1, image: posterKillBill, title: "Kill Bill", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 2, image: posterPulpFiction, title: "PulpFiction", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 1, image: posterKillBill, title: "Kill Bill", year: 1994, genre: "Oscar Winning Movie"},
+        { id: 2, image: posterPulpFiction, title: "PulpFiction", year: 1994, genre: "Oscar Winning Movie"},
+        ],
+      },
+      text: {
+        type: String,
+        required: false,
+        default: '1234',
+      },
+      amount: {
+        type: Number,
+        required: true,
+        default: 0,
+      }
+    }
+  }
+</script>
 
 <style>
 .wrapper {
@@ -27,5 +99,14 @@ body {
   height: 100%;
   min-height: 100% !important;
   margin: auto;
+  text-align: center;
+}
+.center {
+  width: 825px;
+  text-align: center;
+  margin: 50px auto;
+}
+.content {
+  text-align: left;
 }
 </style>
