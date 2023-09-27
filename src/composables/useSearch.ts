@@ -1,15 +1,23 @@
-import { ref, Ref } from 'vue';
-import { type Movie } from "@/types/Movie";
+import { ref, computed } from 'vue';
+import type { Ref } from 'vue';
+import type Movie from "@/types/Movie";
 
-export default function useSearch() { 
+export default function useSearch(movies: Movie[]) { 
+    const query: Ref<string> = ref('');
+    const allMovies: Ref<Movie[]> = ref<Movie[]>(movies);
 
-    const filteredItems = ref<Movie[]>([]);
-  
-    function doSearch(title: string, movies: Movie[]) {
-        filteredItems.value = movies.filter((obj) => {
-            return obj.title.includes(title);
-          });
+    const setSearchQuery = (text: string) => {
+        query.value = text
     }
-  
-    return { filteredItems, doSearch };
+    const filteredItems = computed(() => {
+        if (!query.value) {
+          return allMovies.value;
+        }
+        return allMovies.value.filter(movie => {
+          const title = movie?.title.toLocaleLowerCase();
+          return title.includes(query.value.toLocaleLowerCase());
+        })
+    })
+
+    return { filteredItems, setSearchQuery };
 };

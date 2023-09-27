@@ -22,8 +22,8 @@ export default {
 </script>
 
 <style scoped>
-.movie-poster-parameters {
-  width: 275px;
-  height: 400px;
-}
+    .movie-poster-parameters {
+    width: 275px;
+    height: 400px;
+    }
 </style>
