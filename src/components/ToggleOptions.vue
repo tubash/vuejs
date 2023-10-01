@@ -16,13 +16,13 @@
     import { ref } from 'vue';
     export default {
         props: {
-            id: {
+            elementId: {
                 type: String,
                 required: true,
             }
         },
         setup(props) {
-            const id = ref(props.id);
+            const id = ref(props.elementId);
             return { id };
         }
     }

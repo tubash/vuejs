@@ -1,5 +1,5 @@
 <template>
-    <toggle-options v-model="selected" @click="doSelect" :id="searchElementId">
+    <toggle-options v-model="selected" @click="doSelect" :elementId="searchElementId">
         <template v-slot:title>
             SEARCH BY
         </template>
