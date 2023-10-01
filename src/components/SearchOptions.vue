@@ -1,5 +1,5 @@
 <template>
-    <toggle-options v-model="selected" @click="doSelect" :elementId="searchElementId">
+    <toggle-options @do-toggle="doSelect" :element-id="searchElementId" :element-value="true">
         <template v-slot:title>
             SEARCH BY
         </template>
@@ -12,8 +12,6 @@
     </toggle-options>
 </template>
 <script lang="ts">
-    import { ref } from 'vue';
-    import type { Ref } from 'vue';
     import ToggleOptions from '@/components/ToggleOptions.vue';
     export default {
         components: {
@@ -21,13 +19,10 @@
         },
         emits: ['do-select'],
         setup(props, {emit}) {
-            const searchElementId: string = "searchCategory";
+            const searchElementId: string = "searchElementId";
             // false = first option, true = second option
-            const selected = ref(true);
-            const doSelect = (selected : Ref<boolean>) => {
-                emit('do-select', selected);
-            }
-            return { doSelect, selected, searchElementId };
+            const doSelect = (toggled: boolean) => emit('do-select', toggled);
+            return { doSelect, searchElementId };
         }        
     }
 </script>

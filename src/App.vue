@@ -76,8 +76,8 @@
 
       const { filteredItems, setSearchQuery } = useSearch(movies);
       const performSearch = (message : string) => setSearchQuery(message);
-      const performSort = (selected : Ref<boolean>) => console.log("SORTED: " + selected.value);
-      const performSelect = (selected : Ref<boolean>) => console.log("SELECTED: " + selected.value);
+      const performSort = (selected : boolean) => console.log("SORTED: " + selected);
+      const performSelect = (selected : boolean) => console.log("SELECTED: " + selected);
 
       return { performSearch, performSort, performSelect, setSearchQuery, filteredItems };
     },    

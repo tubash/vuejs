@@ -4,8 +4,13 @@
             <slot name="title"></slot>
         </div>
         <div>
-            <input type="checkbox" :id="id" class="toggleCheckbox" />
-            <label :for="id" class='toggleContainer'>
+            <input 
+                type="checkbox" 
+                :id="elementId" 
+                @input="(event) => $emit('do-toggle', (event.target as HTMLInputElement).checked)" 
+                class="toggleCheckbox" 
+            />
+            <label :for="elementId" class='toggleContainer'>
                 <div><slot name="first-option"></slot></div>   
                 <div><slot name="second-option"></slot></div>
             </label> 
@@ -13,17 +18,17 @@
     </div>
 </template>
 <script lang="ts">
-    import { ref } from 'vue';
     export default {
+        emits: ['do-toggle'],
         props: {
             elementId: {
                 type: String,
                 required: true,
+            },
+            elementValue: {
+                type: Boolean,
+                required: true,
             }
-        },
-        setup(props) {
-            const id = ref(props.elementId);
-            return { id };
         }
     }
 </script>

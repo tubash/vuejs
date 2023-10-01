@@ -1,5 +1,5 @@
 <template>
-    <toggle-options @do-select="doSelect" v-model="sortedValue" @click="doSelect" :elementId="sortElementId">
+    <toggle-options @do-toggle="doSelect" :element-id="sortElementId" :element-value="true">
         <template v-slot:title>
             SORT BY
         </template>
@@ -12,8 +12,6 @@
     </toggle-options>
 </template>
 <script lang="ts">
-    import { ref } from 'vue';
-    import type { Ref } from 'vue';
     import ToggleOptions from '@/components/ToggleOptions.vue';
     export default {
         components: {
@@ -23,11 +21,10 @@
         setup(props, {emit}) {
             const sortElementId: string = "sortElementId";
             // false = first option, true = second option
-            const sortedValue = ref(true);
-            const doSelect = (sorted : Ref<boolean>) => {
+            const doSelect = (sorted: boolean) => {
                 emit('do-sort', sorted);
             }
-            return { doSelect, sortedValue, sortElementId };
+            return { doSelect, sortElementId };
         }
     }
 </script>
