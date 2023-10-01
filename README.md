@@ -1,8 +1,11 @@
-# Homework 03
+# Homework 04
 
-<h2>Please run <code>npm run storybook</code> for the homework</h2>
+Details are available at: https://d17btkcdsmqrmh.cloudfront.net/vue/docs/module-5/home-task
 
-Details are available at: https://d17btkcdsmqrmh.cloudfront.net/vue/docs/module-4/homework
+* pinia is added
+* @storybook/cli: v7.3.2 -> v7.4.5
+* a generic text toggle component added -> ToggleOptions.vue
+* toggle child components added -> SortOptions.vue, SearchOptions.vue
 
 ## Project Setup
 
