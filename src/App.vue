@@ -6,7 +6,11 @@
           <search-form @do-search="performSearch"/>
         </div>
         <div>
+          <search-options @do-select="performSelect" />
+        </div>
+        <div style="display: flex;width: 100%;">
           <search-summary :amount="filteredItems.length" />
+          <sort-options @do-sort="performSort" />
         </div>
         <div>
           <movie-grid :movies="filteredItems" />
@@ -19,8 +23,12 @@
 </template>
 
 <script lang="ts">
+  import type { Ref } from 'vue';
+  
   import SearchForm from '@/components/SearchForm.vue';
   import SearchSummary from '@/components/SearchSummary.vue';
+  import SortOptions from '@/components/SortOptions.vue';
+  import SearchOptions from '@/components/SearchOptions.vue';
   import MovieGrid from '@/components/MovieGrid.vue';
 
   import type Movie from '@/types/Movie';
@@ -34,7 +42,9 @@
     components: {
       MovieGrid,
       SearchForm,
-      SearchSummary
+      SearchSummary,
+      SortOptions,
+      SearchOptions
     },
     setup() {
       const movies: Movie[] = [
@@ -66,15 +76,17 @@
 
       const { filteredItems, setSearchQuery } = useSearch(movies);
       const performSearch = (message : string) => setSearchQuery(message);
+      const performSort = (selected : Ref<boolean>) => console.log("SORTED: " + selected.value);
+      const performSelect = (selected : Ref<boolean>) => console.log("SELECTED: " + selected.value);
 
-      return { performSearch, setSearchQuery, filteredItems };
+      return { performSearch, performSort, performSelect, setSearchQuery, filteredItems };
     },    
   }
 </script>
 
 <style>
   .center {
-    width: 825px;
+    width: 845px;
     text-align: center;
     margin: 50px auto;
   }
