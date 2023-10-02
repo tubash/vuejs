@@ -23,17 +23,14 @@
 </template>
 
 <script lang="ts">
-  import moviesData from '@/assets/movies.json'
+  import useMoviesStore from '@/store/datasource'
+  import useSearch from '@/composables/useSearch.ts';
   
   import SearchForm from '@/components/SearchForm.vue';
   import SearchSummary from '@/components/SearchSummary.vue';
   import SortOptions from '@/components/SortOptions.vue';
   import SearchOptions from '@/components/SearchOptions.vue';
   import MovieGrid from '@/components/MovieGrid.vue';
-
-  import type Movie from '@/types/Movie';
-
-  import useSearch from '@/composables/useSearch.ts';
 
   export default {
     components: {
@@ -44,14 +41,14 @@
       SearchOptions
     },
     setup() {
-      const movies: Movie[] = moviesData as Movie[];
-
+      const { movies } = useMoviesStore();
       const { filteredItems, setSearchQuery } = useSearch(movies);
+
       const performSearch = (message : string) => setSearchQuery(message);
       const performSort = (selected : boolean) => console.log("SORTED: " + selected);
       const performSelect = (selected : boolean) => console.log("SELECTED: " + selected);
 
-      return { performSearch, performSort, performSelect, setSearchQuery, filteredItems };
+      return { performSearch, performSort, performSelect, filteredItems };
     },    
   }
 </script>
