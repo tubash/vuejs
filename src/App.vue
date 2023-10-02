@@ -42,11 +42,11 @@
     },
     setup() {
       const { movies } = useMoviesStore();
-      const { filteredItems, setSearchQuery } = useSearch(movies);
+      const { filteredItems, setSearchQuery, setSearchCategory, setSortOption } = useSearch(movies);
 
       const performSearch = (message : string) => setSearchQuery(message);
-      const performSort = (selected : boolean) => console.log("SORTED: " + selected);
-      const performSelect = (selected : boolean) => console.log("SELECTED: " + selected);
+      const performSort = (selected : boolean) => setSortOption(selected);
+      const performSelect = (selected : boolean) => setSearchCategory(selected);
 
       return { performSearch, performSort, performSelect, filteredItems };
     },    

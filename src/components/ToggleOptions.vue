@@ -7,8 +7,9 @@
             <input 
                 type="checkbox" 
                 :id="elementId" 
+                :checked="elementValue"
                 @input="(event) => $emit('do-toggle', (event.target as HTMLInputElement).checked)" 
-                class="toggleCheckbox" 
+                class="toggleCheckbox"
             />
             <label :for="elementId" class='toggleContainer'>
                 <div><slot name="first-option"></slot></div>   

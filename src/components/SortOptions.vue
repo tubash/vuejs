@@ -1,5 +1,5 @@
 <template>
-    <toggle-options @do-toggle="doSelect" :element-id="sortElementId" :element-value="true">
+    <toggle-options @do-toggle="doSelect" :element-id="sortElementId" :element-value="false">
         <template v-slot:title>
             SORT BY
         </template>

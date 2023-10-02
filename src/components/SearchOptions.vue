@@ -1,5 +1,5 @@
 <template>
-    <toggle-options @do-toggle="doSelect" :element-id="searchElementId" :element-value="true">
+    <toggle-options @do-toggle="doSelect" :element-id="searchElementId" :element-value="false">
         <template v-slot:title>
             SEARCH BY
         </template>
