@@ -1,3 +1,5 @@
+import defaultImage from '@/assets/default.png';
+
 export default {
     mounted(el, binding, vnode) {
         if (!el.parentNode.lazyLoadItemObserver) {
@@ -18,7 +20,12 @@ export default {
                 lazyImage.addEventListener("load", () => {
                   lazyImage.classList.add("is-lazyloaded");
                 });
-                // unobserve after
+                // add class after image has loaded
+                lazyImage.addEventListener("error", () => {
+                  lazyImage.src = defaultImage;
+                });                
+
+              // unobserve after
                 el.parentNode.lazyLoadItemObserver.unobserve(lazyImage);
               }
             });
