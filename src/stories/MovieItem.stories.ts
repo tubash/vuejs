@@ -13,10 +13,10 @@ export const PulpFiction = {
   args: {
     movie: {
       id: 1,
-      image: posterPulpFiction,
+      posterurl: posterPulpFiction,
       title: "Pulp Fiction",
-      year: 2004,
-      genre: "Action & Adventure",
+      year: "2004",
+      genres: ["Action", "Adventure"],
     },
   },
 };
@@ -25,10 +25,10 @@ export const KillBill = {
   args: {
     movie: {
       id: 2,
-      image: posterKillBill,
+      posterurl: posterKillBill,
       title: "Kill Bill",
-      year: 1994,
-      genre: "Oscar Winning Movie",
+      year: "1994",
+      genres: ["Oscar Winning Movie", "Sci-Fi"],
     },
   },
 };

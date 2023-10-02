@@ -6,7 +6,7 @@
     export default {
         props: {
             year: {
-                type: Number,
+                type: String,
                 required: true,
             },
         },
@@ -20,5 +20,6 @@
         border: 1px solid #000;
         border-radius: 5px;
         padding: 3px 10px;
+        height: 18px;
     }
 </style>

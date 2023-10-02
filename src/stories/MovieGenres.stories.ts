@@ -6,13 +6,13 @@ export default {
   tags: ["autodocs"],
 };
 
-export const Action = {
+export const ActionAndAdventure = {
   args: {
     genres: ['Action', 'Adventure'],
   },
 };
 
-export const Adventure = {
+export const SciFiAndXXX = {
   args: {
     genres: ['Sci-Fi', 'XXX'],
   },

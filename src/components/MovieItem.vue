@@ -1,14 +1,14 @@
 <template>
     <div class="movie-item">
         <div>
-            <movie-poster :source="movie.image"></movie-poster>
+            <movie-poster :source="movie.posterurl"></movie-poster>
         </div>
         <div class="flex-layout">
             <movie-title :title="movie.title"></movie-title>
             <movie-year :year="movie.year" class="right-block"></movie-year>
         </div>
         <div>
-            <movie-genre :genre="movie.genre"></movie-genre>
+            <movie-genres :genres="movie.genres"></movie-genres>
         </div>
     </div>
 </template>
@@ -20,19 +20,19 @@
     import MoviePoster from "@/components/MoviePoster.vue";
     import MovieTitle from "@/components/MovieTitle.vue";
     import MovieYear from "@/components/MovieYear.vue";
-    import MovieGenre from "@/components/MovieGenre.vue";
+    import MovieGenres from "@/components/MovieGenres.vue";
 
     export default {
     components: {
         MoviePoster,
         MovieTitle,
         MovieYear,
-        MovieGenre,
+        MovieGenres,
     },
     props: {
         movie: {
-        type: Object as PropType<Movie>,
-        required: true,
+            type: Object as PropType<Movie>,
+            required: true,
         },
     },
     };

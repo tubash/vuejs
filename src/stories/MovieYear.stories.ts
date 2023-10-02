@@ -8,12 +8,12 @@ export default {
 
 export const Year1996 = {
   args: {
-    year: 1996,
+    year: '1996',
   },
 };
 
 export const Year2023 = {
   args: {
-    year: 2023,
+    year: '2023',
   },
 };
