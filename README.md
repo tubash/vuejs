@@ -1,11 +1,8 @@
-# Homework 04
+# Homework 05
 
-Details are available at: https://d17btkcdsmqrmh.cloudfront.net/vue/docs/module-5/home-task
+Details are available at: https://d17btkcdsmqrmh.cloudfront.net/vue/docs/module-6/homework
 
-* pinia is added
-* @storybook/cli: v7.3.2 -> v7.4.5
-* a generic text toggle component added -> ToggleOptions.vue
-* toggle child components added -> SortOptions.vue, SearchOptions.vue
+* vitest unit tests are added
 
 ## Project Setup
 
