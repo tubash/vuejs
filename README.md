@@ -2,7 +2,7 @@
 
 Details are available at: https://d17btkcdsmqrmh.cloudfront.net/vue/docs/module-7/homework
 
-* @vueuse/core is added
+* axios is added
 
 ## Project Setup
 
