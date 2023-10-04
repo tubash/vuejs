@@ -2,6 +2,12 @@
 
 Details are available at: https://d17btkcdsmqrmh.cloudfront.net/vue/docs/module-6/homework
 
+Please run the following command to run test:
+
+```sh
+npm run tests
+```
+
 * vitest unit tests are added
 * cypress unit tests are added
 
