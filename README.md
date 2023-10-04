@@ -1,9 +1,8 @@
-# Homework 05
+# Homework 06
 
-Details are available at: https://d17btkcdsmqrmh.cloudfront.net/vue/docs/module-6/homework
+Details are available at: https://d17btkcdsmqrmh.cloudfront.net/vue/docs/module-7/homework
 
-* vitest unit tests are added
-* cypress unit tests are added
+* @vueuse/core is added
 
 ## Project Setup
 
