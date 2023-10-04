@@ -4,7 +4,7 @@ import MovieGenres from "@/components/MovieGenres.vue";
 
 const genresList = ["Action", "Comedy"];
 
-test("MovieGenres.vue", async () => {
+test("MovieGenres.vue", () => {
     expect(MovieGenres).toBeTruthy();
   
     const wrapper = mount(MovieGenres, {
@@ -14,5 +14,5 @@ test("MovieGenres.vue", async () => {
     });
 
     expect(wrapper).toBeTruthy;
-    expect(wrapper.text()).toContain(genresList.join(" & "));
+    expect(wrapper.find(".movie-genre-title").text()).toContain(genresList.join(" & "));
 });

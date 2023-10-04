@@ -1,8 +1,9 @@
 import { mount } from "@vue/test-utils";
 import { expect, test } from "vitest";
+
 import SearchSummary from "@/components/SearchSummary.vue";
 
-test("SearchSummary.vue", async () => {
+test("SearchSummary.vue", () => {
     expect(SearchSummary).toBeTruthy();
   
     const amountValue = 11;

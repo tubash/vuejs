@@ -12,7 +12,7 @@ const MockIntersectionObserver = vi.fn(() => ({
 }))
 vi.stubGlobal(`IntersectionObserver`, MockIntersectionObserver)
 
-test("MoviePoster.vue", async () => {
+test("MoviePoster.vue", () => {
     expect(MoviePoster).toBeTruthy();
   
     const wrapper = mount(MoviePoster, {
