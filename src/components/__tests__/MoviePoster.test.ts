@@ -18,7 +18,7 @@ test("MoviePoster.vue", async () => {
     const wrapper = mount(MoviePoster, {
         props: {
             source: defaultImage,
-        },
+        }
     });
 
     expect(wrapper).toBeTruthy;
