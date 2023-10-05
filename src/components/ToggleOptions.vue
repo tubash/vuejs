@@ -41,7 +41,7 @@
         margin-left: auto;
     }
     .toggleTitle {
-        padding: 6px;
+        padding: 6px 6px 6px 0;
     }
     .toggleContainer {
         position: relative;
