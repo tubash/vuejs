@@ -2,8 +2,10 @@
 
 Details are available at: https://d17btkcdsmqrmh.cloudfront.net/vue/docs/module-8/homework
 
-* router is added
-* iso8601-duration is added
+* `router` is added
+* `iso8601-duration` is added
+* `404` not found route and component are added
+* you can search a movie by adding a `query` request parameter: `?query=pulp`
 
 ## Project Setup
 
