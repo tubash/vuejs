@@ -1,25 +1,16 @@
 <template>
-    <router-link 
-        :to="{ 
-            name: 'MovieView', 
-            params: { 
-                id: movie.id 
-            }
-        }" 
-        class="nav-link">
-        <div class="movie-item">
-            <div>
-                <movie-poster :source="movie.posterurl"></movie-poster>
-            </div>
-            <div class="flex-layout">
-                <movie-title :title="movie.title"></movie-title>
-                <movie-year :year="movie.year" class="right-block"></movie-year>
-            </div>
-            <div>
-                <movie-genres :genres="movie.genres"></movie-genres>
-            </div>
+    <div class="movie-item" @click="$router.push({ name: 'MovieView', params: { id: movie.id } })">
+        <div>
+            <movie-poster :source="movie.posterurl"></movie-poster>
         </div>
-    </router-link>
+        <div class="flex-layout">
+            <movie-title :title="movie.title"></movie-title>
+            <movie-year :year="movie.year" class="right-block"></movie-year>
+        </div>
+        <div>
+            <movie-genres :genres="movie.genres"></movie-genres>
+        </div>
+    </div>
 </template>
 
 <script lang="ts">
@@ -43,24 +34,27 @@
                 type: Object as PropType<Movie>,
                 required: true,
             },
-        },
+        }
     };
 </script>
 
 <style scoped>
     .movie-item {
-    width: 275px;
+        width: 275px;
+    }
+    .movie-item:hover {
+        cursor: pointer;
     }
     .flex-layout {
-    display: flex;
+        display: flex;
     }
     .right-block {
-    margin-left: auto;
-    vertical-align: middle;
+        margin-left: auto;
+        vertical-align: middle;
     }
     .complex-layout::after {
-    content: "";
-    clear: both;
-    display: inline;
+        content: "";
+        clear: both;
+        display: inline;
     }
 </style>
