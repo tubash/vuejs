@@ -1,8 +1,9 @@
-# Homework 06
+# Homework 07
 
-Details are available at: https://d17btkcdsmqrmh.cloudfront.net/vue/docs/module-7/homework
+Details are available at: https://d17btkcdsmqrmh.cloudfront.net/vue/docs/module-8/homework
 
-* axios is added and wrapped
+* router is added
+* iso8601-duration is added
 
 ## Project Setup
 
