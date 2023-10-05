@@ -20,7 +20,7 @@
 </template>
   
 <script lang="ts">
-    import { computed, onMounted, reactive, ref } from 'vue';
+    import { computed, onMounted, ref } from 'vue';
     import type { Ref } from 'vue';
     
     import useSearch from '@/composables/useSearch';
@@ -33,7 +33,6 @@
     import SortOptions from '@/components/SortOptions.vue';
     import SearchOptions from '@/components/SearchOptions.vue';
     import MovieGrid from '@/components/MovieGrid.vue';
-import { strictEqual } from 'assert';
   
     export default {
       components: {
