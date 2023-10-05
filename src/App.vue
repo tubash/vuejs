@@ -1,31 +1,36 @@
 <template>
-    <div class="center">
-      <div class="content">
-        <h1>FIND YOUR MOVIE</h1>
-        <div>
-          <search-form @do-search="performSearch"/>
-        </div>
-        <div>
-          <search-options @do-select="performSelect" />
-        </div>
-        <div style="display: flex;width: 100%;">
-          <search-summary :amount="filteredItems.length" />
-          <sort-options @do-sort="performSort" />
-        </div>
-        <div>
-          <movie-grid :movies="filteredItems" />
-        </div>
+  <div class="center">
+    <div class="content">
+      <h1>FIND YOUR MOVIE</h1>
+      <div>
+        <search-form @do-search="performSearch"/>
+      </div>
+      <div>
+        <search-options @do-select="performSelect" />
+      </div>
+      <div style="display: flex;width: 100%;">
+        <search-summary :amount="processed.length" />
+        <sort-options @do-sort="performSort" />
+      </div>
+      <div>
+        <movie-grid :movies="processed" />
       </div>
     </div>
+  </div>
   <div>
 
   </div>
 </template>
 
 <script lang="ts">
-  import useMoviesStore from '@/store/datasource'
-  import useSearch from '@/composables/useSearch.ts';
+  import { computed, onMounted, reactive, ref } from 'vue';
+  import type { Ref } from 'vue';
   
+  import useSearch from '@/composables/useSearch';
+  import useMoviesStore from '@/stores/datasource'
+  
+  import type Movie from '@/types/Movie.ts';
+
   import SearchForm from '@/components/SearchForm.vue';
   import SearchSummary from '@/components/SearchSummary.vue';
   import SortOptions from '@/components/SortOptions.vue';
@@ -41,14 +46,27 @@
       SearchOptions
     },
     setup() {
-      const { movies } = useMoviesStore();
-      const { filteredItems, setSearchQuery, setSearchCategory, setSortOption } = useSearch(movies);
 
-      const performSearch = (message : string) => setSearchQuery(message);
-      const performSort = (selected : boolean) => setSortOption(selected);
-      const performSelect = (selected : boolean) => setSearchCategory(selected);
+      const searchOption: Ref<boolean> = ref(false);
+      const sortOption: Ref<boolean> = ref(false);
+      const searchQuery: Ref<string> = ref('');
 
-      return { performSearch, performSort, performSelect, filteredItems };
+      const store = useMoviesStore();
+      const { process } = useSearch();
+
+      const processed: Ref<Movie[]> = computed(() => {
+        return process(store.movies, searchQuery.value, searchOption.value, sortOption.value);
+      });
+
+      const performSort = (sorted : boolean) => sortOption.value = sorted;
+      const performSelect = (selected : boolean) => searchOption.value = selected;
+      const performSearch = (message : string) => searchQuery.value = message;
+
+      onMounted(async () => {
+        store.loadMovies();
+      });
+
+      return { processed, performSort, performSelect, performSearch };
     },    
   }
 </script>

@@ -2,7 +2,7 @@
 
 Details are available at: https://d17btkcdsmqrmh.cloudfront.net/vue/docs/module-7/homework
 
-* axios is added
+* axios is added and wrapped
 
 ## Project Setup
 

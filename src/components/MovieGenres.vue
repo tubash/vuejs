@@ -8,7 +8,7 @@ import { computed } from 'vue';
     export default {
         props: {
             genres: {
-            type: Array<String>,
+            type: Array<string>,
             required: true,
             },
         }, 

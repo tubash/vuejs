@@ -1,45 +1,31 @@
-import { ref, computed } from 'vue';
-import type { Ref } from 'vue';
 import type Movie from "@/types/Movie";
 
-export default function useSearch(movies: Movie[]) { 
-    const query: Ref<string> = ref('');
-    
-    const searchCategory: Ref<boolean> = ref(false);
-    const sortOption: Ref<boolean> = ref(false);
+export default function useSearch() { 
 
-    const allMovies: Ref<Movie[]> = ref<Movie[]>(movies);
-
-    const setSearchQuery = (text: string) => {
-        query.value = text
+  const process = (movies: Movie[], query: string, searchOption: boolean , sortOption: boolean) => {
+    if (!movies) {
+      return [];
     }
-    // true is genre and false is title
-    const setSearchCategory = (category: boolean) => {
-      searchCategory.value = category;
+
+    if (!query) {
+      return sortOption
+        ? movies.sort((a, b) => a.ratings.reduce((c, d) => c + d) - b.ratings.reduce((c, d) => c + d))
+        : movies.sort((a, b) => a.releaseDate.localeCompare(b.releaseDate));
     }
-    // true is release date and false is rating
-    const setSortOption = (sort: boolean) => {
-      sortOption.value = sort;
-    }
-    const filteredItems = computed(() => {
-        if (!query.value) {
-          return sortOption.value
-            ? allMovies.value.sort((a, b) => a.ratings.reduce((c, d) => c + d) - b.ratings.reduce((c, d) => c + d))
-            : allMovies.value.sort((a, b) => a.releaseDate.localeCompare(b.releaseDate));
-        }
-        const filtered = allMovies.value.filter(movie => {
-          const title = movie?.title.toLocaleLowerCase();
-          const genre = movie?.genres.join().toLocaleLowerCase();
 
-          return searchCategory.value 
-            ? genre.includes(query.value.toLocaleLowerCase())
-            : title.includes(query.value.toLocaleLowerCase());
-        });
+    const filtered = movies.filter(movie => {
+      const title = movie?.title.toLocaleLowerCase();
+      const genre = movie?.genres.join().toLocaleLowerCase();
 
-        return sortOption.value
-          ? filtered.sort((a, b) => a.ratings.reduce((c, d) => c + d) - b.ratings.reduce((c, d) => c + d))
-          : filtered.sort((a, b) => a.releaseDate.localeCompare(b.releaseDate));
-    })
+      return searchOption 
+        ? genre.includes(query.toLocaleLowerCase())
+        : title.includes(query.toLocaleLowerCase());
+    });
 
-    return { filteredItems, setSearchQuery, setSearchCategory, setSortOption };
+    return sortOption
+      ? filtered.sort((a, b) => a.ratings.reduce((c, d) => c + d) - b.ratings.reduce((c, d) => c + d))
+      : filtered.sort((a, b) => a.releaseDate.localeCompare(b.releaseDate));
+  };
+
+  return { process };
 };
