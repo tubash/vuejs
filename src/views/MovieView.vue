@@ -10,7 +10,8 @@
     import type { Ref } from 'vue';
 
     import { useRoute } from 'vue-router'
-        
+    import router from "@/router";
+
     import useMoviesStore from '@/stores/datasource.ts'
     import MovieCard from '@/components/MovieCard.vue';
 
@@ -29,6 +30,9 @@
                     await store.loadMovies();
                 }
                 movie.value = store.getMovie(route.params.id as string);
+                if (!movie.value) {
+                    router.push({ name: 'NotFound' });
+                }
             });
             return { movie };
         }
