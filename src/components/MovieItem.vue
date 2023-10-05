@@ -1,16 +1,25 @@
 <template>
-    <div class="movie-item">
-        <div>
-            <movie-poster :source="movie.posterurl"></movie-poster>
+    <router-link 
+        :to="{ 
+            name: 'MovieView', 
+            params: { 
+                id: movie.id 
+            }
+        }" 
+        class="nav-link">
+        <div class="movie-item">
+            <div>
+                <movie-poster :source="movie.posterurl"></movie-poster>
+            </div>
+            <div class="flex-layout">
+                <movie-title :title="movie.title"></movie-title>
+                <movie-year :year="movie.year" class="right-block"></movie-year>
+            </div>
+            <div>
+                <movie-genres :genres="movie.genres"></movie-genres>
+            </div>
         </div>
-        <div class="flex-layout">
-            <movie-title :title="movie.title"></movie-title>
-            <movie-year :year="movie.year" class="right-block"></movie-year>
-        </div>
-        <div>
-            <movie-genres :genres="movie.genres"></movie-genres>
-        </div>
-    </div>
+    </router-link>
 </template>
 
 <script lang="ts">
@@ -23,18 +32,18 @@
     import MovieGenres from "@/components/MovieGenres.vue";
 
     export default {
-    components: {
-        MoviePoster,
-        MovieTitle,
-        MovieYear,
-        MovieGenres,
-    },
-    props: {
-        movie: {
-            type: Object as PropType<Movie>,
-            required: true,
+        components: {
+            MoviePoster,
+            MovieTitle,
+            MovieYear,
+            MovieGenres,
         },
-    },
+        props: {
+            movie: {
+                type: Object as PropType<Movie>,
+                required: true,
+            },
+        },
     };
 </script>
 

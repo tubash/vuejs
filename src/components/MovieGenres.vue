@@ -13,7 +13,7 @@ import { computed } from 'vue';
             },
         }, 
         setup(props) {
-            const display = computed(() => props.genres.join(" & "));      
+            const display = computed(() => props.genres.join(" & "));
             return {display};
         }
     };

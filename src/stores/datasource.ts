@@ -14,9 +14,15 @@
       const response = await fetchMovies();      
       movies.value = response.data;
     }
+
+    const getMovie = (movieId: string) => {
+      console.log("MOVIE ID: " + movieId);
+      const result = movies.value.find(({ id }) => id === parseInt(movieId));
+      console.log("MOVIE: " + result);
+      return result;
+    }    
     
-    return { movies, loadMovies };
+    return { movies, loadMovies, getMovie };
   });
   
   export default useMoviesStore;
-  
