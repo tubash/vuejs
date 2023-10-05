@@ -31,23 +31,27 @@
 <style>
     .search-form {
         margin: 20px 0;
+        display: flex;
     }
     .do-search {
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        -ms-border-radius: 5px;
-        border-radius: 5px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        border-radius: 3px;
         background-color: #e74c3c;
         color: #fff;
         border: 0;
         height: 50px;
         width: 200px;
+
+        font-size: medium;
+        margin-left: auto;
     }
     .search-input {
         font-size: small;
-        width: 60%;
+        width: 100%;
         padding: 12px 20px;
-        height: 25px;
+        height: 22px;
         margin-right: 10px;
-        }    
+    }    
 </style>
