@@ -2,7 +2,7 @@
   import type { Ref } from 'vue';
   import { defineStore } from 'pinia';
 
-  import type Movie from '@/types/Movie.ts';
+  import type Movie from '@/types/Movie';
   import useMovies from '@/composables/useMovies';
 
   const useMoviesStore = defineStore('datasource', () => {

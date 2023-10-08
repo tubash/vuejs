@@ -17,7 +17,7 @@
     import { computed } from 'vue';
 
     import type { PropType } from 'vue';
-    import type Movie from '@/types/Movie.ts';
+    import type Movie from '@/types/Movie';
 
     import MoviePoster from '@/components/MoviePoster.vue';
 

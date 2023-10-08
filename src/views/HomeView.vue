@@ -26,7 +26,7 @@
     import useSearch from '@/composables/useSearch';
     import useMoviesStore from '@/stores/datasource'
     
-    import type Movie from '@/types/Movie.ts';
+    import type Movie from '@/types/Movie';
   
     import SearchForm from '@/components/SearchForm.vue';
     import SearchSummary from '@/components/SearchSummary.vue';

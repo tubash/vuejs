@@ -12,10 +12,10 @@
     import { useRoute } from 'vue-router'
     import router from "@/router";
 
-    import useMoviesStore from '@/stores/datasource.ts'
+    import useMoviesStore from '@/stores/datasource'
     import MovieCard from '@/components/MovieCard.vue';
 
-    import type Movie from '@/types/Movie.ts';
+    import type Movie from '@/types/Movie';
 
     export default {
         components: {
