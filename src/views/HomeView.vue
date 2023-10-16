@@ -15,6 +15,10 @@
       <div>
         <movie-grid :movies="processed" />
       </div>
+      <div v-if="store.status" class="error">
+        <h1>ERROR LOADING</h1>
+        <h4>{{ store.status }}</h4>
+      </div>
     </div>
   </div>
 </template>
@@ -49,7 +53,7 @@
   
         const store = useMoviesStore();
         const { process } = useSearch();
-  
+
         const processed: Ref<Movie[]> = computed(() => {
           return process(store.movies, searchQuery.value, searchOption.value, sortOption.value);
         });
@@ -64,7 +68,7 @@
           }
         });
   
-        return { processed, performSort, performSelect, performSearch };
+        return { processed, performSort, performSelect, performSearch, store };
       },    
     }
 </script>
@@ -76,6 +80,14 @@
   }
   .content {
     text-align: left;
+  }
+  .error h1 {
+    font-size: 50pt;
+    text-align: center;
+    padding: 50px 0 0 0;
+  }
+  .error h4 {
+    text-align: center;
   }
 </style>
   
