@@ -1,13 +1,21 @@
 import { mount } from "@vue/test-utils";
-import { expect, test } from "vitest";
+import { vi, expect, test } from "vitest";
 import SearchForm from "@/components/SearchForm.vue";
+
+// Mock router
+vi.mock('vue-router')
+const VueRouter = await import('vue-router');
+VueRouter.useRoute.mockReturnValueOnce({ 
+    query: {
+    }
+});
 
 const query = 'test query';
 const wrapper = mount(SearchForm, {
     attachTo: document.body,
     props: {
         text: query,
-    },        
+    },
 });
 
 test("SearchForm.vue emittion", async () => {
