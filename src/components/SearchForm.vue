@@ -13,6 +13,7 @@
     import { ref } from 'vue';
     import type { PropType } from 'vue';
     import { useRoute } from 'vue-router'
+    import router from "@/router";
 
     export default {
         emits: ['do-search'],
@@ -24,7 +25,15 @@
         },
         setup(props, { emit }) {
             const currentValue = ref<string|undefined>(props.text);
-            const performSearch = () => emit("do-search", currentValue.value);
+            const performSearch = () => {
+                if (currentValue.value) {
+                    router.replace({ query: { query: currentValue.value } });
+                } else {
+                    router.replace('/');
+                }
+                emit("do-search", currentValue.value);
+            }
+
 
             const route = useRoute();
             if (route.query.query) {
