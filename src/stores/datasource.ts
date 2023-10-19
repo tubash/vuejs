@@ -7,22 +7,25 @@
 
   const useMoviesStore = defineStore('datasource', () => {
 
+    const status = ref();
     const movies: Ref<Movie[]> = ref<Movie[]>([]);
     const { fetchMovies } = useMovies();
 
     const loadMovies = async () => {
-      const response = await fetchMovies();      
-      movies.value = response.data;
+      try {
+        const response = await fetchMovies();   
+        movies.value = response.data;
+        status.value = undefined;
+      } catch (error) {
+        status.value = error;
+      }
     }
 
     const getMovie = (movieId: string) => {
-      console.log("MOVIE ID: " + movieId);
-      const result = movies.value.find(({ id }) => id === parseInt(movieId));
-      console.log("MOVIE: " + result);
-      return result;
+      return movies.value.find(({ id }) => id === parseInt(movieId));
     }    
     
-    return { movies, loadMovies, getMovie };
+    return { movies, loadMovies, getMovie, status };
   });
   
   export default useMoviesStore;
